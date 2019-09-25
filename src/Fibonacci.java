@@ -18,30 +18,25 @@ public class Fibonacci {
         return sequence[i-1] + sequence[i-2]; // 1
     }
 
-    public static int nonRecursiveO1(int n) {
-        // we're only concerned with the previous two values, not the whole sequence so we initialize them
-        int prev = 0; //prev is F(n-1)
-        int secondPrev = 0; //secondPrev is F(n-2)
-
-        // we loop up to n to get F(n)
-        for(int  i = 0; i < n; i++) {
-            // if i is 0 or 1, then we need to set prev/secondPrev to 1
-            if (i <= 1) {
-                // if prev is not zero it means we already have assigned it to 1, this means we need to slide that to secondPrev
-                if(prev != 0) {
-                    secondPrev = prev;
-                }
-                prev = 1;
-            } else {
-                // simulate increasing n, which changes F(n-1) and F(n-2)
-                int temp = prev + secondPrev;
-                secondPrev = prev;
-                prev = temp;
-            }
+    public static int nonRecursiveO1(int number)
+    {
+        // if i is 0 or 1, return 1
+        if(number == 1 || number == 2){
+            return 1;
         }
-        // F(n) will be equal to F(n-1) + F(n-2), so we add the variables for those
-        return prev + secondPrev;
-    }
+
+        // we're only concerned with the previous two values, not the whole sequence (as an array) so we initialize them
+        int fibo1=1, fibo2=1, fibonacci=1;
+
+        for(int i= 3; i<= number; i++){
+            // calculate the fibonacci value using the previous two values
+            fibonacci = fibo1 + fibo2;
+            fibo1 = fibo2;
+            fibo2 = fibonacci;
+        }
+
+        return fibonacci;
+    }​
 
 
     public static int recursive(int n) {
