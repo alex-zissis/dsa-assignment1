@@ -4,29 +4,31 @@ public class Fibonacci {
         int[] sequence = new int[n]; // 1
         int i; // 1
 
-        // loop through from 0 to n
-        for(i = 1; i < n; i++) { // n * t, t = 1, running time is n
-            if (i <= 1) {
-                // if i is 0 or 1, then the value is 1
-                sequence[i] = 1;
-            } else {
-                // otherwise, sum the previous two values in the array to get the next value
-                sequence[i] = sequence[i-1] + sequence[i-2];
-            }
+        if (n == 0 || n == 1) {
+            return 1;
         }
+
+        sequence[0] = 1;
+        sequence[1] = 1;
+        // loop through from 0 to n
+        for(i = 2; i < n; i++) { // n * t, t = 1, running time is n
+            // otherwise, sum the previous two values in the array to get the next value
+            sequence[i] = sequence[i-1] + sequence[i-2];
+        }
+
         // at this point i = n, so sequence n (i-1+i-2) is the final element in the array, or F(n)
-        return sequence[i-1] + sequence[i-2]; // 1
+        return sequence[i-1]; // 1
     }
 
     public static int nonRecursiveO1(int number) {
 
-        if(number == 1 || number == 2){
+        if(number == 0 || number == 1){
             return 1;
         }
 
         int fibo1=1, fibo2=1, fibonacci=1;
 
-        for(int i = 3; i<= number; i++){
+        for(int i = 2; i < number; i++){
             fibonacci = fibo1 + fibo2;
             fibo1 = fibo2;
             fibo2 = fibonacci;
