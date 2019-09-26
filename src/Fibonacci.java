@@ -1,12 +1,12 @@
 public class Fibonacci {
     public static int nonRecursive(int n) {
-        // initialise an array of size n
-        int[] sequence = new int[n+1]; // 1
-        int i; // 1
-
         if (n == 0 || n == 1) {
             return 1;
         }
+
+        // initialise an array of size n
+        int[] sequence = new int[n+1]; // 1
+        int i; // 1
 
         sequence[0] = 1;
         sequence[1] = 1;
@@ -20,15 +20,17 @@ public class Fibonacci {
         return sequence[i-1]; // 1
     }
 
-    public static int nonRecursiveO1(int number) {
-
-        if(number == 0 || number == 1){
+    public static int nonRecursiveO1(int n){
+        // return 1 if the value is 0 or 1
+        if(n == 0 || n == 1){
             return 1;
         }
 
+        // initialise values used for F(n-1), F(n-2) and F(n)
         int fibo1=1, fibo2=1, fibonacci=1;
 
-        for(int i = 2; i <= number; i++){
+        //loop up to n, calculating F(i-1) + F(i-2) to get F(i). Final F(i) value is F(n)
+        for(int i = 2; i <= n; i++){
             fibonacci = fibo1 + fibo2;
             fibo1 = fibo2;
             fibo2 = fibonacci;
