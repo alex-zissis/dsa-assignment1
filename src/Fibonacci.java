@@ -109,9 +109,8 @@ public class Fibonacci {
             // otherwise, sum the previous two values in the array to get the next value
             sequence[i] = sequence[i-1] + sequence[i-2];
         }
-
         // at this point i = n, so sequence n (i-1+i-2) is the final element in the array, or F(n)
-        return sequence[i-1];
+        return sequence[n];
     }
 
     public static int nonRecursiveO1(int n){
