@@ -35,7 +35,7 @@ public class Main {
         System.out.println("recursive : t = " + (System.nanoTime()-startTimeRec) + " nanosecs.\n");
 
         long startTimeNonRec = System.nanoTime(); // your method call here
-        System.out.println(Fibonacci.nonRecursive(number));
+        Fibonacci.nonRecursive(number);
         System.out.println("non recursive : t = " + (System.nanoTime()-startTimeNonRec) + " nanosecs.\n");
 
         long startTimeNonRec01 = System.nanoTime(); // your method call here
