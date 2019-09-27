@@ -6,6 +6,7 @@
  *
  *  Course: CS 241
  *  Team Authors: Alex Zissis, Karl Eshwer, Kyle Pla
+ *  Collaborators: none
  *
  *  Assignment: 1
  *  Problem: Calculate the a Fibonacci value using various methods
